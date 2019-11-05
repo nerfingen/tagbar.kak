@@ -295,8 +295,6 @@ define-command -hidden tagbar-set-kinds %{ evaluate-commands %sh{
         fypp)                printf "set-option buffer tagbar_kinds 'm' 'Macros'" ;;
         gdbinit)             printf "set-option buffer tagbar_kinds 'd' 'Definitions' 't' 'Toplevel Variables'" ;;
         go)                  printf "set-option buffer tagbar_kinds 'p' 'Packages' 'f' 'Functions' 'c' 'Constants' 't' 'Types' 'v' 'Variables' 's' 'Structs' 'i' 'Interfaces' 'm' 'Struct Members' 'M' 'Struct Anonymous Members' 'n' 'Interface Method Specification' 'u' 'Unknown' 'P' 'Name For Specifying Imported Package'" ;;
-        haskell)             [ -n "$(command -v hasktags)" ] && printf "%s\n" "set-option buffer tagbar_ctags_cmd 'hasktags -x'
-                                                                            set-option buffer tagbar_kinds 'm' 'Modules' 'fi' 'Functions' 't' 'Types' 'd' 'Data' 'nt' 'Newtype' 'i' 'Instances'" ;;
         html)                printf "set-option buffer tagbar_kinds 'a' 'Named Anchors' 'h' 'H1 Headings' 'i' 'H2 Headings' 'j' 'H3 Headings'" ;;
         iniconf)             printf "set-option buffer tagbar_kinds 's' 'Sections' 'k' 'Keys'" ;;
         itcl)                printf "set-option buffer tagbar_kinds 'c' 'Classes' 'm' 'Methods' 'v' 'Object-Specific Variables' 'C' 'Common Variables' 'p' 'Procedures Within The  Class  Namespace'" ;;
@@ -366,6 +364,8 @@ define-command -hidden tagbar-set-kinds %{ evaluate-commands %sh{
         ansibleplaybook)     printf "set-option buffer tagbar_kinds 'p' 'Plays'" ;;
         nim)                 [ -n "$(command -v ntags)" ] && printf "%s\n" "set-option buffer tagbar_ctags_cmd 'ntags'
                                                                             set-option buffer tagbar_kinds 'f' 'Procedures' 't' 'Types' 'v' 'Variables'" ;;
+        haskell)             [ -n "$(command -v hasktags)" ] && printf "%s\n" "set-option buffer tagbar_ctags_cmd 'hasktags -x'
+                                                                            set-option buffer tagbar_kinds 'm' 'Modules' 'fi' 'Functions' 't' 'Types' 'd' 'Data' 'nt' 'Newtype' 'i' 'Instances'" ;;
         *) ;;
     esac
 }}
